@@ -1,0 +1,25 @@
+{
+  "author": "Chris Esperian",
+  "name": "5x5_jq_uploader",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "A customizable jQuery plugin for uploading multiple files",
+  "main": "index.js",
+  "homepage": "https://github.com/cesperian/5x5_jq_uploader#readme",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cesperian/5x5_jq_uploader.git"
+  },
+  "keywords": [
+    "jquery",
+    "plugin",
+    "upload"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1"
+  }
+}
