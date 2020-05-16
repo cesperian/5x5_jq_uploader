@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5x5 File Uploader Example</title>
+</head>
+<body>
+
+    <div id="uploaderCont" class="container">
+        <div id="dragandrophandler">
+            Drag &amp;amp; Drop Files Here
+            <div class="dDropOptsCont">
+                <div id="ddropOpts" class="form-inline">
+                    <div id="optSrc">
+                        <h4></h4>
+                        <select required class="form-control input-sm" name="AttachmentType">
+
+                        </select>
+                        <input type="text" class="form-control input-sm" name="AttachmentDescription" maxlength="100" required />
+                    </div>
+                    <div class="optRow">
+                        <button class="btn" type="button">Cancel</button>
+                        <button class="btn btn-primary" type="button">Upload</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ulBrowse">
+            or&#32;
+            <label class="btn btn-primary btn-file">
+                Browse <input type="file" style="display: none;" multiple="multiple" />
+            </label>
+        </div>
+    </div>
+
+
+</body>
+</html>
