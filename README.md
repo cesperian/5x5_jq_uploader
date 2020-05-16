@@ -1,6 +1,6 @@
 # 5x5_jq_uploader
 
-This is a parameterizeable plug in for jQuery that can be used to upload one or more files.
+A parameterizeable plug in for jQuery that can be used to upload one or more files.
 
 ## About
 Use it and you're in the pipe, five by five...
@@ -32,7 +32,7 @@ Using a cdn;
 <html>
   <head>
     <title>jQuery file uploader example</title>
-    <script src="dist/5x5jqpi.min.js"></script>
+    <script src="dist/5x5jqpi.js"></script>
     <script>
         $(function(){
             $("#uploader").initUploader();
