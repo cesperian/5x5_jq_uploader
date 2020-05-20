@@ -28,21 +28,14 @@ Using a cdn;
 ## Setup
 
 ```html
-<!doctype html>
-<html>
-  <head>
-    <title>jQuery file uploader example</title>
-    <script src="dist/5x5jqpi.js"></script>
-    <script>
-        $(function(){
-            $("#uploader").initUploader();
-        });
-    </script>
-  </head>
-  <body>
+
+    // in script...
+    $(function(){ 
+        $("#uploader").initUploader({destination:'uploaderRoute'});
+    });
+    
+    <!--in body-->
     <div id="uploader"></div>
-  </body>
-</html>
 ```
 
 ## Options

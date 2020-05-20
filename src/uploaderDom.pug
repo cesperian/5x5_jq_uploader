@@ -1,0 +1,46 @@
+//-
+
+#uploaderCont.container
+    #dragandrophandler Drag and Drop Files here
+        .dDropOptsCont
+            #ddropOpts.form-inline
+                #optSrc
+                    h4 test
+                    select(
+                        class="form-control input-sm"
+                        name="AttachmentType"
+                        required
+                    )
+                    input(
+                        type="text"
+                        class="form-control input-sm"
+                        name="AttachmentDescription"
+                        maxlength="100"
+                        required
+                    )
+                    .optRow
+                        button(
+                            class="btn"
+                            type="button"
+                        ) Cancel
+
+                    .optRow
+                        button(
+                            class="btn btn-primary"
+                            type="button"
+                        ) Upload
+    #ulBrowse or
+        label.btn.btn-primary.btn-file Browse
+            input(
+                type="file"
+                style={display:'none'}
+                multiple
+            )
+
+
+
+if doIt
+    p yo do it
+else
+    p yo dont do it
+
