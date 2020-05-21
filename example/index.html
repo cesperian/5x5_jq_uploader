@@ -6,12 +6,17 @@
 
         <meta charset="UTF-8">
         <title>5x5 File Uploader Example</title>
-        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">-->
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
         <script src="../dist/5x5jqpi.min.js"></script>
+
         <script>
             $(function(){
-                $("#uploader").initUploader({destination:'uploaderRoute',testBool: false});
+                $("#uploader").initUploader({
+                    destination:'uploaderRoute',
+                });
             });
         </script>
 
@@ -20,6 +25,6 @@
     <body>
 
         <div id="uploader"></div>
-
+<button onclick="$('.fileQueue > div:not(:first)').toggleClass('d-none')">show</button>
     </body>
 </html>

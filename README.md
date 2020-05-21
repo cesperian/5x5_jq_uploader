@@ -14,9 +14,7 @@ A non-jQuery file uploader that uses Hyperscript-Helpers and MaterializeCss, and
 Using npm;
 
 ```
-$ npm install jquery
-$ npm install bootstrap
-$ npm install 5x5_jq_uploader
+$ npm install jquery bootstrap 5x5_jq_uploader
 
 ```
 Using a cdn;

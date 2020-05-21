@@ -1,4 +1,6 @@
 
+import './ul.scss'
+
 (function(){
 
     const template = require("pug-loader!./uploaderDom.pug")
@@ -17,16 +19,19 @@
             destinationParams:null,
             sizeLimit:1,
             fileLimit:5,
-            options:null,
-            description:false,
+            selectOpts:null,
+            // selectOpts:{1:"one",2:"two",3:"three"},
+            showDescription:false,
             postFn:$.noop,
-            testBool: false
         };
 
         let opts = $.extend({},defaults,o);
 
 
-        const configDom = {doIt: opts.testBool}
+        const configDom = {
+            showDesc: opts.showDescription,
+            options: opts.selectOpts
+        }
         const dom = template(configDom);
         $ulObj.html(dom);
 
