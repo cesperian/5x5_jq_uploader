@@ -35,6 +35,8 @@ testem.log
 /typings
 src_dd.js
 nowheresville.lnk
+/example/*.css
+/example/*.js
 
 # System Files
 .DS_Store

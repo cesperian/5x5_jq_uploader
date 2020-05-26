@@ -1,0 +1,13 @@
+
+//- separate bc positioned using 'fixed'. need to place at top level, not by uploader div...
+
+.modal.fade(tabindex='-1', role='dialog')
+    .modal-dialog
+        .modal-content
+            .modal-header
+                h5.modal-title File Error
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+            .modal-body
+            .modal-footer
+                button.btn.btn-primary(type='button', data-dismiss='modal') Close
