@@ -1,10 +1,6 @@
 # 5x5_jq_uploader
 
-A responsive, parameterizeable plug in for jQuery that can be used to upload one or more files.
-
-## Other available uploaders
-
-A non-jQuery file uploader that uses Hyperscript-Helpers and MaterializeCss, written in a functional programming-type style is in progress. I will post the link when complete.
+This plug in can be used to instantly create a dropfile area and file queue with very little setup. Uses Bootstrap for responsive layout and alerts.
 
 ## Installation
 
@@ -16,17 +12,18 @@ $ npm install jquery bootstrap 5x5_jq_uploader
 ```
 Using a cdn;
 ```
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 ```
 
-## Setup
+## Basic Setup
 
 ```html
 
     // in script...
     $(function(){ 
-        $("#uploader").initUploader({destination:'uploaderRoute'});
+        $("#uploader").initUploader({destination:'/uploaderUrl'});
     });
     
     <!--in body-->
@@ -34,11 +31,15 @@ Using a cdn;
 ```
 
 ## Options
-```
-$("#uploader").initUploader({
-    // how many entries do you want?
-    // default: 
-    // valid values: any integer
-    limit: 10,
-});
-```
+Options that can be specified when initializing uploader;
+
+|Name   |Type   |Default   |Description   |
+|:---:|:---:|:---:|:---:|
+|destination   |string   |null   |**Required**. Path to a processing script/api   |
+| destinationParams  |object   |null   |Key/value pairs that can be used for creating a querystring on upload   |
+|sizeLimit   |integer   |1   |Limit of individual file sizes, in MB    |
+|fileLimit   |integer   |5   |Limit of total number files that can be queued for upload   |
+|selectOpts   |object   |null   |Key/value pairs used to render a select element for each file queued for upload. Key is used for the individual option value and the key's value displayed to user. Chosen value gets appended to file object as property 'fileType'     |
+|showDescription   |boolean   |false   |If true will render a text input for each file queued for upload. Value gets appended to file object as property 'description'   |
+|postFn   |function   |noop   |A callback for when a upload has completed successfully    |
+

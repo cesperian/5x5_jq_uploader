@@ -7,13 +7,10 @@
         <meta charset="UTF-8">
         <title>5x5 File Uploader Example</title>
 
-        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">-->
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-
-        <link rel="stylesheet" href="bootstrap.css">
-        <script src="jquery.js"></script>
-        <script src="bootstrap.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
         <script src="../dist/5x5jqpi.min.js"></script>
 
@@ -21,7 +18,9 @@
 
             $(function(){
                 $("#uploader").initUploader({
-                    destination:'uploader.jsp',
+                    destination:'/uploader.jsp',
+                    selectOpts:{one:'one',two:'two',three:'3'},
+                    showDescription: true,
                 });
             });
 

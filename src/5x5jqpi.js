@@ -35,11 +35,7 @@ import './ul.scss'
         $ulObj.html(dom);
         $("body").append(alert);
 
-        if(opts.destinationParams)opts.destination = () => {
-            let params = `${opts.destination}?`;
-            params += opts.destinationParams.each((k,v) => `${k}=${v}&`);
-            return params
-        };
+        if (opts.destinationParams) opts.destination = `${opts.destination}?${$.param(opts.destinationParams)}`;
 
         $ulObj.on('click change', 'input[value]', (e) => {
             if (e.currentTarget.attributes['value'].nodeValue == 'Remove') {
@@ -168,6 +164,7 @@ import './ul.scss'
                     const $modal = $('.modal');
                     $modal.find('.modal-body').text(`File${manifest.length==1 ? '' : 's'} successfully uploaded`);
                     setTimeout(()=> $modal.modal('show'),70);
+                    opts.postFn.call();
                 },
                 error: (xhr, status, err) => {
                     $('.row.ddHandler').css('opacity', 100);
