@@ -1,7 +1,4 @@
 
-
-// todo; set up generated form el validation
-
 import './ul.scss'
 
 (function(){
@@ -18,15 +15,13 @@ import './ul.scss'
         let $ulObj = this;
 
 
-        //1000000 =~ 1Mb default
         let defaults = {
             destination:null,
             destinationParams:null,
             sizeLimit:1,
             fileLimit:5,
-            // selectOpts:null,
-            selectOpts:{1:"one",2:"two",3:"three"},
-            showDescription:true,
+            selectOpts:null,
+            showDescription:false,
             postFn:$.noop,
         };
         opts = $.extend({},defaults,o);
@@ -86,10 +81,10 @@ import './ul.scss'
         }
         let $src = $(".queueSrc").html();
         for (let i =0; i < fl.length; i++) {
-            if (fl[i].size > (opts.sizeLimit * 1000000)) {
+            if (fl[i].size > (opts.sizeLimit * 1048576)) {
                 const sizeMsg = `
                     The size limit for individual files is ${opts.sizeLimit} MB.
-                    <br><b>${fl[i].name}</b> is ${(fl[i].size/1000000).toFixed(1)} MB.`
+                    <br><b>${fl[i].name}</b> is ${(fl[i].size/1048576).toFixed(1)} MB.`
                 const $modal = $('.modal');
                 $modal.find('.modal-body').html(sizeMsg);
                 $modal.modal('show');
@@ -104,34 +99,93 @@ import './ul.scss'
                 manifest.push(fl[i]);
             }
         }
-        console.log('manifest', manifest);
+        $('.row.submit').css('display','flex');
     }
 
     function dequeueFiles(el){
         manifest = manifest.filter( f => f.name !== el.attributes["data-name"].value );
         let $delRow = $(el).closest('.row');
-        $delRow.animate({opacity:0}, 850, () => $delRow.remove());
-        console.log('manifest', manifest);
+        $delRow.animate({opacity:0}, 400, () => $delRow.remove());
+        $('.row.submit').css('display', () => manifest.length ? 'flex' : 'none');
     }
 
     function sendFiles(){
         let fd = new FormData();
+        let pct = 0;
+        const $progress = $(".row.ulProgress .progress-bar");
         const $fileQueue = $('.row.fileQueue');
+
+        // add extra props, if there are any...
         if (opts.selectOpts){
             File.prototype.fileType = '';
             manifest.map(f => {
-                f.fileType = $fileQueue.filter(":has(input[data-name='" + f.name + "'])").find(".col.desc input").val();
+                f.fileType = $fileQueue.filter(`:has(input[data-name='${f.name}'])`).find(".col.desc input").val();
                 return f;
             });
         }
         if (opts.showDescription) {
             File.prototype.description = '';
             manifest.map(f => {
-                f.description = $fileQueue.filter(":has(input[data-name='" + f.name + "'])").find(".col.options select").val();
+                f.description = $fileQueue.filter(`:has(input[data-name='${f.name}'])`).find(".col.options select").val();
                 return f;
             });
         }
-        console.log('man', manifest);
-    }
+        manifest.forEach(f => fd.append('file', f));
+
+        // mod dom...
+        $fileQueue.animate({opacity:0}, 400, () => {
+            $('.row.ddHandler').css('opacity',0);
+            $('.row.submit').hide();
+            $('.row.ulProgress').show();
+        });
+
+        // give above anim time to play out...
+        setTimeout(() => {
+            $.ajax({
+                xhr: () => {
+                    let xhrobj = $.ajaxSettings.xhr();
+                    if(xhrobj.upload) {
+                        xhrobj.upload.addEventListener('progress', e => {
+                            let pos = e.loaded || e.position;
+                            if (e.lengthComputable){
+                                pct = Math.ceil(pos / e.total * 100 );
+                                $progress.css('width',pct + "%").text(pct + "%");
+                            }
+                        }, false);
+                    }
+                    return xhrobj;
+                },
+                url: opts.destination,
+                type: "POST",
+                contentType: false,
+                processData: false,
+                data: fd,
+                success: (d, status, xhr) => {
+                    $fileQueue.remove();
+                    $('.row.ddHandler').css('opacity', 100);
+                    $('.row.ulProgress').hide();
+                    manifest = [];
+                    const $modal = $('.modal');
+                    $modal.find('.modal-body').text(`File${manifest.length==1 ? '' : 's'} successfully uploaded`);
+                    setTimeout(()=> $modal.modal('show'),70);
+                },
+                error: (xhr, status, err) => {
+                    $('.row.ddHandler').css('opacity', 100);
+                    $fileQueue.css('opacity', 100);
+                    $('.row.ulProgress').hide();
+                    $('.row.submit').show();
+                    const $modal = $('.modal');
+                    let msg = `There was an error uploading the file${manifest.length==1 ? '' : 's'}`;
+                    msg += (err.length ? `<br><i>${err}</i>` : '');
+                    $modal.find('.modal-body').html(msg);
+                    setTimeout(()=> $modal.modal('show'),70);
+                }
+
+            }); // ajax
+
+        }, 450); // timeout
+
+    } // send files
 
 }());
+

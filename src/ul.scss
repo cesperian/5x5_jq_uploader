@@ -1,5 +1,7 @@
+
 #uploader{ //jq obj
   padding: 1em;
+  position: relative;
   #uploaderCont{
     #dragandrophandler{
       background: #ebebeb;
@@ -25,10 +27,12 @@
       }
       &.active{
         box-shadow: 0 0 18px 2px inset #979797;
+        background: #bbd3ff;
         svg{
+          transform: translateY(11px);
           height: 3.8em;
-          opacity: 0.4;
-          fill: #1cbf00;
+          opacity: 1;
+          fill: #fff;
         }
         span{opacity: 0}
       }
@@ -41,18 +45,31 @@
       > div{ // cols
         display: flex;
         align-items: center;
+        &.name b{
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
         &.remove{justify-content: flex-end;}
       }
     }
     .row.queueSrc{display:none;}
     .row.ulProgress{
+      display:none;
       height:16px;
       width: 100%;
+      .col{
+        position: absolute;
+        top: 28%;
+        left: 0;
+      }
+      .progress-bar{width:0;}
     }
     .submit{ //row
+      display: none;
       margin-top: 17px;
     }
 
   } //ulcont
+
 }
 

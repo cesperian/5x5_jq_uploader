@@ -10,6 +10,7 @@
         <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">-->
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
 
+
         <link rel="stylesheet" href="bootstrap.css">
         <script src="jquery.js"></script>
         <script src="bootstrap.js"></script>
@@ -17,11 +18,13 @@
         <script src="../dist/5x5jqpi.min.js"></script>
 
         <script>
+
             $(function(){
                 $("#uploader").initUploader({
-                    destination:'uploaderRoute',
+                    destination:'uploader.jsp',
                 });
             });
+
         </script>
 
     </head>
@@ -29,6 +32,6 @@
     <body>
 
         <div id="uploader"></div>
-<button onclick="$('.fileQueue > div:not(:first)').toggleClass('d-none')">show</button>
+
     </body>
 </html>

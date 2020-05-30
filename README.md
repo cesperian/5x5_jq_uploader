@@ -1,13 +1,10 @@
 # 5x5_jq_uploader
 
-A parameterizeable plug in for jQuery that can be used to upload one or more files.
-
-## About
-Use it and you're in the pipe, five by five...
+A responsive, parameterizeable plug in for jQuery that can be used to upload one or more files.
 
 ## Other available uploaders
 
-A non-jQuery file uploader that uses Hyperscript-Helpers and MaterializeCss, and is written in a functional programming-type style is in progress. I will post the link when complete.
+A non-jQuery file uploader that uses Hyperscript-Helpers and MaterializeCss, written in a functional programming-type style is in progress. I will post the link when complete.
 
 ## Installation
 

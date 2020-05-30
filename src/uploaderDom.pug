@@ -19,20 +19,20 @@
     .row.queueSrc
         .col.name
             b
-            if showDesc
-                .col.desc
-                    input(
-                        class="form-control form-control-sm"
-                        type="text"
-                        placeholder="Description of file"
-                        maxlength="100"
-                    )
-            if options
-                .col.options
-                    select.custom-select.custom-select-sm
-                        option(selected) Select this file type
-                        each v, k in options
-                            option(value=k)= v
+        if showDesc
+            .col.desc
+                input(
+                    class="form-control form-control-sm"
+                    type="text"
+                    placeholder="Description of file"
+                    maxlength="100"
+                )
+        if options
+            .col.options
+                select.custom-select.custom-select-sm
+                    option(selected) Select this file type
+                    each v, k in options
+                        option(value=k)= v
         .col-2.remove
             input(
                 type="button"
@@ -41,55 +41,15 @@
                 data-name
             )
     .row.ulProgress
-        .col.d-none
+        //.col.d-none
+        .col Uploading...
             .progress
-                .progress-bar(role='progressbar', style='width: 25%;', aria-valuemin='0', aria-valuemax='100') 25%
+                .progress-bar(role='progressbar', aria-valuemin='0', aria-valuemax='100') 0%
     .row.submit
         .col-12.text-right
             input(
                 type="button"
                 class="btn btn-primary"
                 value="Upload"
-            )
-
-
-
-
-
-//-
-    #dragandrophandler Drag and Drop Files here
-        .dDropOptsCont
-            #ddropOpts.form-inline
-                #optSrc
-                    h4 test
-                    select(
-                        class="form-control input-sm"
-                        name="AttachmentType"
-                        required
-                    )
-                    input(
-                        type="text"
-                        class="form-control input-sm"
-                        name="AttachmentDescription"
-                        maxlength="100"
-                        required
-                    )
-                    .optRow
-                        button(
-                            class="btn"
-                            type="button"
-                        ) Cancel
-
-                    .optRow
-                        button(
-                            class="btn btn-primary"
-                            type="button"
-                        ) Upload
-    #ulBrowse or
-        label.btn.btn-primary.btn-file Browse
-            input(
-                type="file"
-                style={display:'none'}
-                multiple
             )
 
