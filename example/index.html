@@ -17,6 +17,8 @@
         <script>
 
             $(function(){
+
+
                 $("#uploader").initUploader({
                     destination:'/uploader.jsp',
                     selectOpts:{one:'one',two:'two',three:'3'},
@@ -26,11 +28,31 @@
 
         </script>
 
+        <style>
+
+            #warn{
+                background: linear-gradient(45deg,rgba(255,255,255,.8) 0,rgba(255,255,255,.8) 32%,rgba(255,0,0,.5) 33%,rgba(255,0,0,.5) 66%,rgba(255,255,255,.8) 67%,rgba(255,255,255,.8) 100%);
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                height: 29px;
+                background-repeat: repeat;
+                background-size: 137px 56px;
+                text-align: center;
+                font-weight: 900;
+                border: thin solid #929292;
+                text-shadow: 0 0 8px #fff;
+            }
+
+        </style>
+
+
     </head>
 
     <body>
 
         <div id="uploader"></div>
 
+        <div id="warn">Note; this demo page is not targeting an existing api, so actual upload will error on submit."</div>
     </body>
 </html>

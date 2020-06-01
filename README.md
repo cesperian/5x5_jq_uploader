@@ -2,6 +2,7 @@
 
 This plug in can be used to instantly create a dropfile area and file queue with very little setup. Uses Bootstrap for responsive layout and alerts.
 
+Demo page can be found [here](https://cesperian.github.io/5x5_jq_uploader/example/index.html).
 ## Installation
 
 Using npm;
