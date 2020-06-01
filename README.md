@@ -34,7 +34,7 @@ Using a cdn;
 Options that can be specified when initializing uploader;
 
 |Name   |Type   |Default   |Description   |
-|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|---|
 |destination   |string   |null   |**Required**. Path to a processing script/api   |
 | destinationParams  |object   |null   |Key/value pairs that can be used for creating a querystring on upload   |
 |sizeLimit   |integer   |1   |Limit of individual file sizes, in MB    |

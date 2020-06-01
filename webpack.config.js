@@ -17,5 +17,9 @@ module.exports = {
                 use: ["style-loader", "css-loader", "sass-loader"]
             }
         ]
+    },
+    externals: {
+        // jquery: 'jQuery',
+        // bootstrap: 'bootstrap'
     }
 };

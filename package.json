@@ -2,11 +2,11 @@
   "author": "Chris Esperian",
   "name": "5x5_jq_uploader",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "A customizable jQuery plugin for uploading multiple files",
+  "main": "dist/5x5jqpi.min.js",
   "homepage": "https://github.com/cesperian/5x5_jq_uploader#readme",
   "scripts": {
-    "build": "webpack",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -18,14 +18,15 @@
     "plugin",
     "upload"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "bootstrap": "^4.5.0",
+    "popper.js": "^1.16.1"
+  },
   "devDependencies": {
     "apply-loader": "^2.0.0",
-    "bootstrap": "^4.5.0",
     "css-loader": "^3.5.3",
-    "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
-    "popper.js": "^1.16.1",
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
     "sass-loader": "^8.0.2",
