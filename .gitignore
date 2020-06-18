@@ -34,6 +34,7 @@ testem.log
 /typings
 /example/*.css
 /example/*.js
+/refProjWithPackage
 
 # System Files
 .DS_Store

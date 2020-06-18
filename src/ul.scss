@@ -4,6 +4,7 @@
   position: relative;
   #uploaderCont{
     #dragandrophandler{
+      flex-direction: column;
       background: #ebebeb;
       height: 30vh;
       min-height: 180px;
@@ -12,9 +13,9 @@
       align-items: center;
       justify-content: center;
       transition: all 400ms;
-      > div > *{transition: all 400ms;}
+      > *{transition: all 400ms;}
       svg{
-        width: 100%;
+        width: 100px;
         height: 3.3em;
         opacity: 0.12;
         margin-bottom: 7px;
@@ -38,7 +39,7 @@
       }
     }
 
-    .fileQueue{
+    .row.fileQueue{
       padding: 1% 0;
       border-bottom: thin solid #e6e6e6;
       opacity: 0;
