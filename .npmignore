@@ -6,6 +6,7 @@
 
 # dependencies
 /node_modules
+/refProjWithPackage
 
 # IDEs and editors
 /.idea
