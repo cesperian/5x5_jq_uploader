@@ -8,7 +8,7 @@ module.exports = {
         filename: "5x5jqpi.min.js"
     },
     node: {
-        fs: "empty" //https://github.com/pugjs/pug-loader/issues/8
+        // fs: "empty" //https://github.com/pugjs/pug-loader/issues/8
     },
     module: {
         rules: [
@@ -19,7 +19,7 @@ module.exports = {
         ]
     },
     externals: {
-        // jquery: 'jQuery',
-        // bootstrap: 'bootstrap'
+        jquery: 'jQuery',
+        bootstrap: 'bootstrap'
     }
 };
