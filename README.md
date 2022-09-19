@@ -1,6 +1,6 @@
 # 5x5_jq_uploader
 
-This plug in can be used to instantly create a dropfile area and file queue with very little setup. Uses Bootstrap for responsive layout and alerts.
+This plug in can be used to create a dropfile area and file queue with very little setup. Uses Bootstrap for responsive layout and alerts.
 
 Demo page can be found [here](https://cesperian.github.io/5x5_jq_uploader/example/index.html).
 
@@ -39,7 +39,7 @@ Options that can be specified when initializing uploader;
 
 |Name   |Type   |Default   |Description   |
 |:---:|:---:|:---:|---|
-|destination   |string   |null   |**Required**. Path to a processing script/api   |
+|destination   |string   |null   |**Required**. Path to an api endpoint   |
 | destinationParams  |object   |null   |Key/value pairs that can be used for creating a querystring on upload   |
 |sizeLimit   |integer   |1   |Limit of individual file sizes, in MB    |
 |fileLimit   |integer   |5   |Limit of total number files that can be queued for upload   |
